@@ -12,7 +12,7 @@ $(document).ready(function(){
   start();
 
   function rand() {
-    return Math.floor(Math.random()*(9-0+1)+0);
+    return Math.floor(Math.random()*(15-0+1)+0);
   }
 
   function getNumbers() {
@@ -88,7 +88,7 @@ $(document).ready(function(){
     $('.answer_box').off().on('keypress', function(e) {  //.off() is there in order not to get multiple answers on continous clicks
   		if(e.which == 13) {
         setTimeout(function() {
-            $('.answer_box').val('');
+          $('.answer_box').val('');
         }, 2000);
         $('.feedback').empty();
   			user_answer = +this.value;
@@ -109,7 +109,6 @@ $(document).ready(function(){
       }
     })
     numberToRobot(numX, numY);
-    chooseOperand('+');
   }
 
   function focusOnAnswer() {

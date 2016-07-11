@@ -304,7 +304,7 @@ footer {
     justify-content: center;
   }
 
-  .robot, .robot_head {
+  .robot {
     display: none;
   }
 
@@ -314,6 +314,8 @@ footer {
   }
 
   .robot_parts {
+    padding-top: 10px;
+    padding-bottom: 10px;
     display: flex;
     align-self: center;
     /*background-image: url(https://cdn.pbrd.co/images/8Esl4Hi1t.png);
