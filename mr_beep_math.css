@@ -73,17 +73,61 @@ header {
   justify-content: center;
 }
 
-.robot {
+.robot_parts {
   display: flex;
   flex-direction: column;
   align-self: flex-end;
   justify-content: flex-end;
   align-items: flex-end;
-  background-image: url(https://cdn.pbrd.co/images/8Esl4Hi1t.png);
+}
+
+.robot, .robot_head {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  justify-content: flex-end;
+  align-items: flex-end;
   background-repeat: no-repeat;
-  margin: 30px 10px 0px 30px;
-  min-width: 260px;
-  min-height: 374px;
+  margin: 0px 10px 0px 30px;
+}
+
+.eye_heart {
+  display: none;
+  flex-direction: column;
+  align-self: flex-end;
+  justify-content: flex-end;
+  align-items: flex-end;
+  background-repeat: no-repeat;
+  margin: 0px 10px 0px 30px;
+}
+
+.eye_wrong {
+  display: none;
+  flex-direction: column;
+  align-self: flex-end;
+  justify-content: flex-end;
+  align-items: flex-end;
+  background-repeat: no-repeat;
+  margin: 0px 10px 0px 30px;
+}
+
+.short_robot {
+  display: none;
+}
+
+.hi {
+  padding: 10px;
+  font-family: sans-serif, monospace;
+  font-variant: small-caps;
+  /*font-weight: 600;*/
+  /*font-family: 'Geostar Fill', cursive;*/
+  text-shadow: -1px 0 rgb(36, 106, 150), 0 1px rgb(36, 106, 150), 1px 0 rgb(36, 106, 150), 0 -1px rgb(36, 106, 150);
+  color: rgb(255, 255, 255);
+  background-color: rgb(20, 93, 163)blue;
+  max-width: 350px;
+  font-size: 2em;
+  /*align-self: center;*/
+  justify-content: center;
 }
 
 .question {
@@ -207,7 +251,7 @@ footer {
 
 
 @media (max-width:800px) {
-  .col-2, .robot {
+  .col-2 {
     flex-direction: column;
     align-content: center;
   }
@@ -260,11 +304,20 @@ footer {
     justify-content: center;
   }
 
-  .robot {
+  .robot, .robot_head {
+    display: none;
+  }
+
+  .short_robot {
     display: flex;
     align-self: center;
-    background-image: url(https://cdn.pbrd.co/images/8Esl4Hi1t.png);
-    background-repeat: no-repeat;
+  }
+
+  .robot_parts {
+    display: flex;
+    align-self: center;
+    /*background-image: url(https://cdn.pbrd.co/images/8Esl4Hi1t.png);
+    background-repeat: no-repeat;*/
     min-height: 210px;
   }
 

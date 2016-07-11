@@ -1,14 +1,15 @@
 $(document).ready(function(){
-  // function start() {
-  //   var userChoice = "+";
-  //   getNumbers();
-  //   presentQuestion(userChoice);
-  //   answer = numX + numY;
-  //   console.log(userChoice);
-  //   console.log(answer);
-  // }
-  //
-  // start();
+  function start() {
+    userChoice = "+";
+    getNumbers();
+    answer = numX + numY;
+    presentQuestion(userChoice);
+    focusOnAnswer();
+    console.log(answer);
+    captureAnswer();
+  }
+
+  start();
 
   function rand() {
     return Math.floor(Math.random()*(9-0+1)+0);
@@ -44,6 +45,18 @@ $(document).ready(function(){
   }
 
   chooseOperand();
+
+  function randomSentencesGood() {
+    sentences = ['good job', 'Nice!!!', 'WOW, really good', 'You got this', 'Getting really good', 'Mathematician, are you?']
+    sayIt = sentences[Math.floor(Math.random()*sentences.length)];
+    return sayIt;
+  }
+
+  function randomSentencesBad() {
+    sentences = ['Sorry', 'Take a deep breath', "Mr Beep, can't compute", 'An error your Math has', 'You can do it', 'Mathematician, you will be?']
+    sayIt = sentences[Math.floor(Math.random()*sentences.length)];
+    return sayIt;
+  }
 
   function presentQuestion(userChoice) {
     $('.question').empty();
@@ -81,13 +94,22 @@ $(document).ready(function(){
   			user_answer = +this.value;
         console.log(user_answer);
         if(user_answer === answer) {
-          $('.feedback').append('correct' +'<br>' + numX + ' ' + userChoice + ' ' + numY +' ' + '=' + ' ' + answer);
+          $('.feedback').append(randomSentencesGood() +'<br>' + numX + ' ' + userChoice + ' ' + numY +' ' + '=' + ' ' + answer);
+          $('.hi').hide();
+          $('.robot_head').hide();
+          $('.eye_wrong').hide();
+          $('.eye_heart').show();
         } else {
-          $('.feedback').append('Sorry, ' +'<br>' + numX + ' ' + userChoice + ' ' + numY +' ' + 'is not' + ' ' + user_answer + '.' + '<br>' + 'Try again!');
+          $('.feedback').append(randomSentencesBad() +'<br>' + numX + ' ' + userChoice + ' ' + numY +' ' + 'is not' + ' ' + user_answer + '.' + '<br>' + 'Try again');
+          $('.robot_head').hide();
+          $('.hi').hide();
+          $('.eye_heart').hide();
+          $('.eye_wrong').show();
         }
       }
     })
     numberToRobot(numX, numY);
+    chooseOperand('+');
   }
 
   function focusOnAnswer() {
