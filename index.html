@@ -2,67 +2,90 @@
 <head>
   <html lang="eng">
   <meta charset="utf-8">
-  <title>Mr. Beep's Math</title>
-  <link rel="stylesheet" type="text/css" href="mr_beep_math.css">
-  <link href="https://fonts.googleapis.com/css?family=Geostar+Fill|Share+Tech+Mono" rel="stylesheet">
+  <title>Hang the hangman</title>
+  <link rel="stylesheet" type="text/css" href="hman.css">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  <script src="mr_beep_math.js"></script>
+  <script src="hman.js"></script>
 </head>
 
-<body>
-  <div class="all_page">
-    <header>
-      <div class="title">Mr Beep's Math</div>
-    </header>
-
-    <div class="content">
-      <div class="zapato">
-        <div class="robot_parts">
-          <img src="https://cdn.pbrd.co/images/agXHvkBUX.png" class="robot_head" id="normal_eyes"></img>
-          <img src="https://cdn.pbrd.co/images/aiNuUDkvv.png" class="eye_heart"  ></img>
-          <img src="https://cdn.pbrd.co/images/11V8KmgQ3.png" class="eye_wrong"  ></img>
-          <!-- <img src="https://cdn.pbrd.co/images/aiNuUDkvv.png" class="eye_check"  ></img> -->
-          <img src="https://cdn.pbrd.co/images/ag9x6ZPte.png" class="robot" ></img>
-          <img src="https://cdn.pbrd.co/images/ak8Lmb8XH.png" class="short_robot" ></img>
-        </div>
-
-        <div class="col-1">
-          <div class="hi">Hi, Math is FUN <br>   select either add or substract from the list on the left.</div>
-          <div class="feedback">
-          </div>
-
-          <div class="question"></div>
-          <br>
-          <div class="answer">
-            <input class="answer_box" type="text" value="" placeholder="type your answer and press enter" autofocus></input>
-          </div>
-          <br>
-        </div>
-      </div>
-
-      <div class="col-2">
-        <div class="select"><h3>SELECT</h3></div>
-        <div class="operand_choice">
-          <button type="button" class='sign' class="add" class="btn" value='+'>ADD</button>
-          <button type="button" class='sign' class="substract" class="btn" value='-'>SUBSTRACT</button>
-        </div>
-        <div class="score">
-          <h3>SCORE</h3>
-          <div>Right:  </div>
-          <div>Wrong:  </div>
-        </div>
-      </div>
-
-      <div class="col-3">
-        <div class="numX"><h2>In this area I'll lend my head, to help you answer the question.</h2></div>
-        <div class="operand"></div>
-        <div class="numY"><h2>Each number will be represented by the same number of heads, so you can give your fingers a break.^_^.</h2></div>
-      </div>
+<body class="menu" class="menu-open">
+  <header>
+    <div class="menu-side">
+      <ul class="color_background">
+        <li class="friend">PLAY AGAINST A FRIEND</li>
+        <li class="ai">PLAY AGAINST THE AI</li>
+        <li>DIFICULTY LEVEL</li>
+        <li>CONTACT ME</li>
     </div>
 
-    <footer>
-    </footer>
-  </div>
-</body>
+    <section class='title'>
+      <span>Help the Rainbow</span>
+      <a href="#" class="menu-toggle">&#9776</a>
+    </section>
+    <section class='word'>
+        <input class="word_to_guess" type="text" name="word" value="" placeholder="type word"autofocus/>
+    </section>
+    <!-- <section class='word'>
+        <input class="word_to_guess" type="text" name="word" value="" placeholder="type word"autofocus/>
+    </section> -->
+  </header>
 
-</html>
+  <div class="game">
+    <div class="Grid">
+      <div class="Grid-cell">A</div>
+      <div class="Grid-cell">B</div>
+      <div class="Grid-cell">C</div>
+      <div class="Grid-cell">D</div>
+      <div class="Grid-cell">E</div>
+      <div class="Grid-cell">F</div>
+      <div class="Grid-cell">G</div>
+      <div class="Grid-cell">H</div>
+      <div class="Grid-cell">I</div>
+      <div class="Grid-cell">J</div>
+      <div class="Grid-cell">K</div>
+      <div class="Grid-cell">L</div>
+      <div class="Grid-cell">M</div>
+      <div class="Grid-cell">N</div>
+      <div class="Grid-cell">O</div>
+      <div class="Grid-cell">P</div>
+      <div class="Grid-cell">Q</div>
+      <div class="Grid-cell">R</div>
+      <div class="Grid-cell">S</div>
+      <div class="Grid-cell">T</div>
+      <div class="Grid-cell">U</div>
+      <div class="Grid-cell">V</div>
+      <div class="Grid-cell">W</div>
+      <div class="Grid-cell">X</div>
+      <div class="Grid-cell">Y</div>
+      <div class="Grid-cell">Z</div>
+    </div>
+
+    <div class="image">
+      <div  class="one"></div>
+      <div  class="two"></div>
+      <div  class="three"></div>
+      <div  class="four"></div>
+      <div  class="five"></div>
+      <div  class="six"></div>
+      <div  class="seven"></div>
+    </div>
+  </div>
+
+  <div class="hint-word">
+    <div class="help">
+      <div class="hint">
+        Hint
+      </div>
+      <div class="hints">
+      </div>
+    </div>
+    <div class="lines">
+      __ __ __ __ __
+    </div>
+  </div>
+
+  <!-- <footer>
+    no idea
+  </footer> -->
+</body>
