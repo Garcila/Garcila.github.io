@@ -6,7 +6,7 @@ var won = 0;
 var lost = 0;
 var word_computer_generated;
 var game_type = 'friend';
-var game_level = 'easy';
+var game_level = 'Easy';
 var word_data;
 
 function rand(minimum_letters, maximum_letters) {
