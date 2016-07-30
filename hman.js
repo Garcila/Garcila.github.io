@@ -13,8 +13,6 @@ function rand(minimum_letters, maximum_letters) {
   return Math.floor(Math.random()*(maximum_letters-minimum_letters+1)+minimum_letters);
 }
 
-
-
 //function to get random word from API.  AI game !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function randomWord() {
   var random_word_frequency_easy = 'https://wordsapiv1.p.mashape.com/words/?hasDetails=typeOf&frequencyMin=6&frequencyMax=7&synonyms&random=true'
@@ -22,143 +20,79 @@ function randomWord() {
   var random_word_frequency_hard = 'https://wordsapiv1.p.mashape.com/words/?hasDetails=typeOf&frequencyMin=1&frequencyMax=2&random=true';
 
   $.ajax({
-      type: 'GET',
-      url: (function difficulty() {
-            if(game_level === 'Hard') {
-              return random_word_frequency_hard
-              console.log('game set to hard');
-            } else if(game_level === 'Medium') {
-              console.log('game set to medium');
-              return random_word_frequency_medium
-            } else if(game_level === 'Easy') {
-              console.log('game set to easy');
-              return random_word_frequency_easy
-            }
-          }()),
-      data: {}, // Additional parameters here
-      dataType: 'json',
-      success: function(data) {
-        console.log((data.word));
-        word = (data.word).toUpperCase();
-        console.log(word);
-        console.log((data.results[0].definition));
-        console.log((data.results[0].synonyms));
-        console.log((data));
-        word_data = (data);
-        separateWord(word);
-        getLetter();
-        $('.hint').bind('click', function thesaurus() {
-          $('.hints').empty();
-          $('.hints').append(word_data.results[0].synonyms[(rand(0,((word_data.results[0].synonyms.length)-1)))]);
-        })
-        $('.def').bind('click', function wordDefinition() {
-          alert(word_data.results[0].definition);
-        })
-      },
-      error: function(err) {
-        randomWord();
-      },
-      beforeSend: function(xhr) {
-      xhr.setRequestHeader("X-Mashape-Authorization", "hznNr7yF1Pmshdl9gk0G70l9yqjbp14ZeTdjsnMAll0VSZcGqF"); // Enter here your Mashape key
-      }
+    type: 'GET',
+    url: (function difficulty() {
+          if(game_level === 'Hard') {
+            return random_word_frequency_hard
+            console.log('game set to hard');
+          } else if(game_level === 'Medium') {
+            console.log('game set to medium');
+            return random_word_frequency_medium
+          } else if(game_level === 'Easy') {
+            console.log('game set to easy');
+            return random_word_frequency_easy
+          }
+        }()),
+    data: {}, // Additional parameters here
+    dataType: 'json',
+    success: function(data) {
+      console.log((data.word));
+      word = (data.word).toUpperCase();
+      console.log(word);
+      console.log((data.results[0].definition));
+      console.log((data.results[0].synonyms));
+      console.log((data));
+      word_data = (data);
+      separateWord(word);
+      getLetter();
+      $('.hint').bind('click', function thesaurus() {
+        $('.hints').empty();
+        $('.hints').append(word_data.results[0].synonyms[(rand(0,((word_data.results[0].synonyms.length)-1)))]);
+      })
+      $('.def').off().bind('click', function wordDefinition() {
+        alert(word_data.results[0].definition);
+      })
+    },
+    error: function(err) {
+      randomWord();
+    },
+    beforeSend: function(xhr) {
+    xhr.setRequestHeader("X-Mashape-Authorization", "hznNr7yF1Pmshdl9gk0G70l9yqjbp14ZeTdjsnMAll0VSZcGqF"); // Enter here your Mashape key
+    }
   });
 }
 
 function thesaurusDefinition(word) {
   $.ajax({
-      type: 'GET',
-      url: 'https://wordsapiv1.p.mashape.com/words/' + word + '?hasDetails=typeOf&synonyms',
-      data: {}, // Additional parameters here
-      dataType: 'json',
-      success: function(data) {
-        console.log((data.results[0].definition));
-        console.log((data.results[0].synonyms));
-        console.log((data));
-        word_data = (data);
-        $('.hint').bind('click', function thesaurus() {
-          $('.hints').empty();
-          $('.hints').append(word_data.results[0].synonyms[(rand(0,((word_data.results[0].synonyms.length)-1)))]);
-        })
-        $('.def').bind('click', function wordDefinition() {
-          alert(word_data.results[0].definition);
-        })
-      },
-      error: function() {
-       alert('I can not find that WORD in my datbase, pelase try a different word')
-       aiOrHuman();
-      },
-      beforeSend: function(xhr) {
-      xhr.setRequestHeader("X-Mashape-Authorization", "hznNr7yF1Pmshdl9gk0G70l9yqjbp14ZeTdjsnMAll0VSZcGqF"); // Enter here your Mashape key
-      }
+    type: 'GET',
+    url: 'https://wordsapiv1.p.mashape.com/words/' + word + '?hasDetails=typeOf&synonyms',
+    data: {}, // Additional parameters here
+    dataType: 'json',
+    success: function(data) {
+      console.log((data.results[0].definition));
+      console.log((data.results[0].synonyms));
+      console.log((data));
+      word_data = (data);
+      $('.hint').bind('click', function thesaurus() {
+        $('.hints').empty();
+        $('.hints').append(word_data.results[0].synonyms[(rand(0,((word_data.results[0].synonyms.length)-1)))]);
+      })
+      $('.def').off().bind('click', function wordDefinition() {
+        alert(word_data.results[0].definition);
+      })
+    },
+    error: function() {
+     alert('I can not find that WORD in my datbase, pelase try a different word')
+     aiOrHuman();
+    },
+    beforeSend: function(xhr) {
+    xhr.setRequestHeader("X-Mashape-Authorization", "hznNr7yF1Pmshdl9gk0G70l9yqjbp14ZeTdjsnMAll0VSZcGqF"); // Enter here your Mashape key
+    }
   });
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//function to get random word from API.  AI game !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// function randomWord() {
-//   var random_word_lenght = rand(7,3);
-//   var requestStr = "http://randomword.setgetgo.com/get.php?len=" + random_word_lenght;
-//
-//   $.ajax({
-//     type: "GET",
-//     url: requestStr,
-//     dataType: "jsonp",
-//     jsonpCallback: 'randomWordComplete'
-//   });
-// }
-//
-// function randomWordComplete(data) {
-//   word = data.Word.toUpperCase();
-//   console.log(data.Word);
-//   console.log(word);
-//   separateWord(word);
-//   getLetter();
-// }
-
 $(document).ready(function(){
   getWord();
-
-  //function to get access Big Huge Thesaurus
-  // $('.hint').bind('click', function thesaurus() {
-  //   $.ajax({
-  //     type: "GET",
-  //     url: "http://words.bighugelabs.com/api/2/583adec71311cc870422e3e327d9b364/" + word + "/json",
-  //     dataType: "json"
-  //   }).done(function (json) {
-  //     $('.hints').empty();
-  //     if(json.hasOwnProperty('noun')) {
-  //       $('.hints').append(json.noun.syn[rand(0,8)] || [0]);
-  //     } else if(json.hasOwnProperty('verb')) {
-  //       $('.hints').append(json.verb.syn[rand(0,8)] || [0]);
-  //     } else if(json.hasOwnProperty('adverb')) {
-  //       $('.hints').append(json.adverb.syn[rand(0,8)] || [0]);
-  //     } else if(json.hasOwnProperty('adjective')) {
-  //       $('.hints').append(json.adjective.syn[rand(0,8)] || [0]);
-  //     } else if(json.hasOwnProperty()) {
-  //       $('.hints').append('Do not know');
-  //     }
-  //   }).fail(function(f) {
-  //     $('.hints').append(" 404");  //if the thesaurus, as it often does, has no synonym, append a friendly 404
-  //   })
-  // })
 
   //reveals or hides side menu
   $('.menu-toggle').bind('click', function() {
@@ -171,6 +105,8 @@ $(document).ready(function(){
     $('.difficulty > li').bind('click', function() {
       console.log($(this).text());
       game_level = $(this).text();
+      $('.word_to_guess').hide();
+      randomWord();
     })
   }
   chooseDifficultyLevel();
@@ -192,10 +128,7 @@ $(document).ready(function(){
       }
     })
   };
-
   selectOponent();
-
-
 })
 
 function getWord() {
@@ -213,25 +146,20 @@ function getWord() {
   });
 }
 
-  function aiOrHuman() {
-    $('.lines').attr('style', '');
-    if(game_type === 'ai') {
-      $('.word_to_guess').hide();
-      $('body').removeClass('menu-open');
-      randomWord();
-    } else if(game_type === 'friend') {
-      $('.word_to_guess').show();
-      $('body').removeClass('menu-open');
-      getWord();
-    }
+function aiOrHuman() {
+  $('.lines').attr('style', '');
+  if(game_type === 'ai') {
+    $('.word_to_guess').hide();
+    $('body').removeClass('menu-open');
+    randomWord();
+  } else if(game_type === 'friend') {
+    $('.word_to_guess').show();
+    $('body').removeClass('menu-open');
+    getWord();
   }
+}
 
-  aiOrHuman();
-// })
-
-
-
-// })
+aiOrHuman();
 
 function separateWord(word) {
   word_array = [];
@@ -262,80 +190,77 @@ function getLetter() {
     console.log('letters used ' + used_letters);
   }
 
-    function isLetterInWord(chosen_letter) {
-      if(word_array.indexOf(chosen_letter) > -1) {
-        for(var i = 0; i<word_array.length; i++) {
-          if(word_array[i] === chosen_letter) {
-            index_chosen_letter.push(i);
-            lines.splice(i, 1, chosen_letter);
-          };
-        }
-        $('.lines').empty();
-        $('.lines').append(lines);
-        console.log(lines);
-      } else {
-        error_count += 1;
-        $('.image div:nth-child(' + error_count + ')').hide();
-        if(error_count === 7) {
-          $('.image').append('NO MORE COLORS'+'<br>'+'<br>'+  'Ultraviolet' +'<br>'+'X-Rays' +'<br>'+' Gamma Rays' +'<br>'+'Cosmic Rays' +'<br>'+'is all that is left' +'<br>'+'<br>'+'  The word you were looking for was ' + word)
-        }
-        console.log('error, letter ' + chosen_letter + ' is not on word');
-        console.log(error_count);
+  function isLetterInWord(chosen_letter) {
+    if(word_array.indexOf(chosen_letter) > -1) {
+      for(var i = 0; i<word_array.length; i++) {
+        if(word_array[i] === chosen_letter) {
+          index_chosen_letter.push(i);
+          lines.splice(i, 1, chosen_letter);
+        };
       }
-    }
-    isLetterInWord(chosen_letter);
-    compareWords();
-  })
-  }
-
-  function compareWords() {
-    if(error_count < 7) {
-      if(lines.join('') === word_array.join('')) {
-        // console.log('you found the word.  the word is ' + (word_array.join('')));
-        won += 1;
-        console.log('won: ' + won + ' - lost: ' + lost);
-        // $('.image').prepend(  word + '<br>' + 'is correct');
-        $('.word_to_guess').show();
-        $('.lines')
-          .css('background-color', 'rgb(106, 28, 133)')
-          .css('padding', '20px')
-          .css('border-radius', '4%')
-        $('.lines').prepend('Found word: ').addClass('lines-won')
-        // getWord();
-        playAgain();
-        // endGame();
-      } else {
-        getLetter();
-      }
+      $('.lines').empty();
+      $('.lines').append(lines);
+      console.log(lines);
     } else {
-      lost +=1;
-      // $('.image').append('you loose the word you tried to find is: ' + word);
-      console.log('you loose');
-      playAgain();
-      endGame();
+      error_count += 1;
+      $('.image div:nth-child(' + error_count + ')').hide();
+      if(error_count === 7) {
+        $('.image').append('NO MORE COLORS'+'<br>'+'<br>'+  'Ultraviolet' +'<br>'+'X-Rays' +'<br>'+' Gamma Rays' +'<br>'+'Cosmic Rays' +'<br>'+'is all that is left' +'<br>'+'<br>'+'  The word you were looking for was ' + word)
+      }
+      console.log('error, letter ' + chosen_letter + ' is not on word');
+      console.log(error_count);
     }
   }
+  isLetterInWord(chosen_letter);
+  compareWords();
+})
+}
 
-  function playAgain() {
-    error_count = 0;
-    used_letters = [];
-    index_chosen_letter= [];
-    $('.image').children().show;
-    $('.word_to_guess').val('').focus();
-    $('.word_to_guess').hide();
-    $('.hints').hide();
-    $('.Grid-cell')
-      .css('transform', 'scale(' + 1 + ')')
-      .css('background-color', '')
-      .css('background-color', 'rgb(50, 57, 61)')
-      .css('color','')
-      .css('color', 'rgb(96, 96, 91)');
-    aiOrHuman();
+function compareWords() {
+  if(error_count < 7) {
+    if(lines.join('') === word_array.join('')) {
+      won += 1;
+      console.log('won: ' + won + ' - lost: ' + lost);
+      // $('.image').prepend(  word + '<br>' + 'is correct');
+      $('.word_to_guess').show();
+      $('.lines')
+        .css('background-color', 'rgb(106, 28, 133)')
+        .css('padding', '20px')
+        .css('border-radius', '4%')
+      $('.lines').prepend('Found word: ').addClass('lines-won');
+      $('.hints').html($('.hints').children())
+      setTimeout(function() {
+        playAgain();
+        // $('.word_to_guess').hide();
+      }, 2000);
+    } else {
+      getLetter();
+    }
+  } else {
+    lost +=1;
+    // $('.image').append('you loose the word you tried to find is: ' + word);
+    console.log('you loose');
+    playAgain();
+    // endGame();
   }
+}
 
+function playAgain() {
+  error_count = 0;
+  used_letters = [];
+  index_chosen_letter= [];
+  $('.image').children().show();
+  $('.word_to_guess').val('').focus();
+  $('.word_to_guess').hide();
+  $('.Grid-cell')
+    .css('transform', 'scale(' + 1 + ')')
+    .css('background-color', '')
+    .css('background-color', 'rgb(50, 57, 61)')
+    .css('color','')
+    .css('color', 'rgb(96, 96, 91)');
+  aiOrHuman();
+}
 
-  function endGame() {
-    console.log('game ended');
-  }
-
-// })
+// function endGame() {
+//   console.log('game ended');
+// }
