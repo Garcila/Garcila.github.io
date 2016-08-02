@@ -151,7 +151,7 @@ input {
   flex-wrap: wrap;
   color: rgb(96, 96, 91);
   z-index: 5;
-  max-width: 500px;
+  max-width: 300px;
 }
 
 .Grid-cell {
