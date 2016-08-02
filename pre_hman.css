@@ -180,7 +180,7 @@ input {
   font-variant: small-caps;
   font-size: 2em;
   color: rgb(74, 67, 78);
-  align-items: stretch;
+  /*align-items: stretch;*/
   justify-content: space-around;
   padding: 30px;
   -webkit-filter: grayscale(20%);
