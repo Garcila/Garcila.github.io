@@ -147,7 +147,8 @@ input {
   display: flex;
   flex-direction: row;
   flex: 5;
-  flex: 5 1 1;
+  -webkit-flex: 1 1 5; //??? 
+  /*flex: 5 1 1;*/
   font-size: 4em;
   flex-wrap: wrap;
   color: rgb(96, 96, 91);
