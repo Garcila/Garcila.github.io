@@ -24,12 +24,15 @@ function randomWord() {
     url: (function difficulty() {
           if(game_level === 'Hard') {
             return random_word_frequency_hard
-            console.log('game set to hard');
+            game_type = 'ai';
+            console.log('game set to Hard');
           } else if(game_level === 'Medium') {
-            console.log('game set to medium');
+            game_type = 'ai';
+            console.log('game set to Medium');
             return random_word_frequency_medium
           } else if(game_level === 'Easy') {
-            console.log('game set to easy');
+            game_type = 'ai';
+            console.log('game set to Easy');
             return random_word_frequency_easy
           }
         }()),
@@ -47,7 +50,11 @@ function randomWord() {
       getLetter();
       $('.hint').bind('click', function thesaurus() {
         $('.hints').empty();
-        $('.hints').append(word_data.results[0].synonyms[(rand(0,((word_data.results[0].synonyms.length)-1)))]);
+        if($.type(word_data.results[0].synonyms) === "undefined") {
+          $('.hints').append('42');
+        } else {
+          $('.hints').append(word_data.results[0].synonyms[(rand(0,((word_data.results[0].synonyms.length)-1)))]);
+        }
       })
       $('.def').off().bind('click', function wordDefinition() {
         alert(word_data.results[0].definition);
@@ -75,7 +82,11 @@ function thesaurusDefinition(word) {
       word_data = (data);
       $('.hint').bind('click', function thesaurus() {
         $('.hints').empty();
-        $('.hints').append(word_data.results[0].synonyms[(rand(0,((word_data.results[0].synonyms.length)-1)))]);
+        if($.type(word_data.results[0].synonyms) === "undefined") {
+          $('.hints').append('42');
+        } else {
+          $('.hints').append(word_data.results[0].synonyms[(rand(0,((word_data.results[0].synonyms.length)-1)))]);
+        }
       })
       $('.def').off().bind('click', function wordDefinition() {
         alert(word_data.results[0].definition);
@@ -155,6 +166,7 @@ function aiOrHuman() {
   } else if(game_type === 'friend') {
     $('.word_to_guess').show();
     $('body').removeClass('menu-open');
+    $('.word_to_guess').val('').focus();
     getWord();
   }
 }
@@ -188,31 +200,35 @@ function getLetter() {
       .css('color','rgb(255, 255, 255)');
     used_letters.push(chosen_letter);
     console.log('letters used ' + used_letters);
-  }
 
-  function isLetterInWord(chosen_letter) {
-    if(word_array.indexOf(chosen_letter) > -1) {
-      for(var i = 0; i<word_array.length; i++) {
-        if(word_array[i] === chosen_letter) {
-          index_chosen_letter.push(i);
-          lines.splice(i, 1, chosen_letter);
-        };
+    isLetterInWord(chosen_letter);
+    function isLetterInWord(chosen_letter) {
+      if(word_array.indexOf(chosen_letter) > -1) {
+        for(var i = 0; i<word_array.length; i++) {
+          if(word_array[i] === chosen_letter) {
+            index_chosen_letter.push(i);
+            lines.splice(i, 1, chosen_letter);
+          };
+        }
+        $('.lines').empty();
+        $('.lines').append(lines);
+        console.log(lines);
+      } else {
+        error_count += 1;
+        $('.image div:nth-child(' + error_count + ')').hide();
+        if(error_count === 7) {
+          // $('.image').append('<div>NO MORE COLORS'+'<br>'+'<br>'+  'Ultraviolet' +'<br>'+'X-Rays' +'<br>'+' Gamma Rays' +'<br>'+'Cosmic Rays' +'<br>'+'is all that is left' +'<br>'+'<br>'+'  The word you were looking for was ' + word + '</div>')
+          $('<div/>', {
+            class: 'loosing_message',
+            text: 'NO MORE COLORS. Ultraviolet, X-Rays, Gamma Rays, Cosmic Rays, is all that is left.  The word you were looking for was ' + word
+          }).appendTo('.image');
+        }
+        console.log('error, letter ' + chosen_letter + ' is not on word');
+        console.log(error_count);
       }
-      $('.lines').empty();
-      $('.lines').append(lines);
-      console.log(lines);
-    } else {
-      error_count += 1;
-      $('.image div:nth-child(' + error_count + ')').hide();
-      if(error_count === 7) {
-        $('.image').append('NO MORE COLORS'+'<br>'+'<br>'+  'Ultraviolet' +'<br>'+'X-Rays' +'<br>'+' Gamma Rays' +'<br>'+'Cosmic Rays' +'<br>'+'is all that is left' +'<br>'+'<br>'+'  The word you were looking for was ' + word)
-      }
-      console.log('error, letter ' + chosen_letter + ' is not on word');
-      console.log(error_count);
+    compareWords();
     }
   }
-  isLetterInWord(chosen_letter);
-  compareWords();
 })
 }
 
@@ -228,6 +244,8 @@ function compareWords() {
         .css('padding', '20px')
         .css('border-radius', '4%')
       $('.lines').prepend('Found word: ').addClass('lines-won');
+      $('.Grid-cell').unbind('click');
+      $('.word_to_guess').focus();
       $('.hints').html($('.hints').children())
       setTimeout(function() {
         playAgain();
@@ -240,7 +258,19 @@ function compareWords() {
     lost +=1;
     // $('.image').append('you loose the word you tried to find is: ' + word);
     console.log('you loose');
-    playAgain();
+    $('.word_to_guess').show();
+    $('.lines')
+      .css('background-color', 'rgb(106, 28, 133)')
+      .css('padding', '20px')
+      .css('border-radius', '4%')
+    $('.Grid-cell').unbind('click');
+    $('.word_to_guess').focus();
+    $('.hints').html($('.hints').children())
+    // if(confirm('Sorry, the word you were looking for was ' + '<br>' + word + '<br>' + 'Do you want to play again?')) {
+    setTimeout(function() {
+      playAgain();
+    }, 5000)
+    // }
     // endGame();
   }
 }
@@ -249,6 +279,7 @@ function playAgain() {
   error_count = 0;
   used_letters = [];
   index_chosen_letter= [];
+  $('.loosing_message').empty();
   $('.image').children().show();
   $('.word_to_guess').val('').focus();
   $('.word_to_guess').hide();
