@@ -176,7 +176,7 @@ input {
   display: flex;
   flex-direction: column;
   background: rgb(255, 255, 255);
-  flex: 3;
+  flex: 5;
   font-variant: small-caps;
   font-size: 2em;
   color: rgb(74, 67, 78);
