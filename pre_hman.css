@@ -151,12 +151,11 @@ input {
   flex-wrap: wrap;
   color: rgb(96, 96, 91);
   z-index: 5;
-  align-self: flex-start;
 }
 
 .Grid-cell {
   display: flex;
-  flex: 1;
+  flex: 1 0 auto;
   flex-wrap: wrap;
   border-style: solid;
   border-width: thin;
