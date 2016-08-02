@@ -147,7 +147,7 @@ input {
   display: flex;
   flex-direction: row;
   flex: 5;
-  -webkit-flex: 5 1 5; //??? 
+  -webkit-flex: 5 0 5; //??? 
   /*flex: 5 1 1;*/
   font-size: 4em;
   flex-wrap: wrap;
