@@ -148,15 +148,15 @@ input {
   /*flex-direction: row;*/
   flex: 5;
   font-size: 4em;
-  flex-wrap: wrap;
+  /*flex-wrap: wrap;*/
   color: rgb(96, 96, 91);
   z-index: 5;
 }
 
 .Grid-cell {
   display: flex;
-  /*flex: 1;*/
-  /*flex-wrap: wrap;*/
+  flex: 1;
+  flex-wrap: wrap;
   border-style: solid;
   border-width: thin;
   border-color: white;
