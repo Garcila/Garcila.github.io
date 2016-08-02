@@ -146,7 +146,7 @@ input {
 .Grid {
   display: flex;
   flex-direction: row;
-  flex: 3 0 0;
+  flex: 3 0 1;
   font-size: 4em;
   flex-wrap: wrap;
   color: rgb(96, 96, 91);
