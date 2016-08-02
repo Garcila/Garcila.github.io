@@ -145,10 +145,10 @@ input {
 
 .Grid {
   display: flex;
-  flex-direction: row;
+  /*flex-direction: row;*/
   /*flex: 5;*/
   font-size: 4em;
-  /*flex-wrap: wrap;*/
+  flex-wrap: wrap;
   color: rgb(96, 96, 91);
   z-index: 5;
 }
