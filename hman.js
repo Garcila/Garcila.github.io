@@ -19,7 +19,6 @@ function randomWord() {
   var random_word_frequency_medium = 'https://wordsapiv1.p.mashape.com/words/?hasDetails=typeOf&frequencyMin=3&frequencyMax=5&random=true';
   var random_word_frequency_hard = 'https://wordsapiv1.p.mashape.com/words/?hasDetails=typeOf&frequencyMin=1&frequencyMax=2&random=true';
 
-
   $.ajax({
     type: 'GET',
     url: (function difficulty() {
