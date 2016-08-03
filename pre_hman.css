@@ -149,9 +149,9 @@ input {
 .Grid {
   display: flex;
   flex-direction: row;
-  flex: 5;
-  -webkit-flex: 5 0 4em;
-  flex: 5 1 1;
+  /*flex: 3;*/
+  -webkit-flex: 5 0 1em;
+  /*flex: 3 1 1;*/
   font-size: 4em;
   flex-wrap: wrap;
   color: rgb(96, 96, 91);
@@ -180,7 +180,7 @@ input {
   display: flex;
   flex-direction: column;
   background: rgb(255, 255, 255);
-  flex: 3;
+  flex: 5;
   font-variant: small-caps;
   font-size: 2em;
   color: rgb(74, 67, 78);
