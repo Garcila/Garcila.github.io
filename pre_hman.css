@@ -150,7 +150,7 @@ input {
   display: flex;
   flex-direction: row;
   /*flex: 3;*/
-  -webkit-flex: 2 0 5px;
+  -webkit-flex: 1 0 5px;
   /*flex: 3 1 1;*/
   /*font-size: 4em;*/
   flex-wrap: wrap;
@@ -180,7 +180,7 @@ input {
   display: flex;
   flex-direction: column;
   background: rgb(255, 255, 255);
-  flex: 5;
+  /*flex: 5;*/
   font-variant: small-caps;
   font-size: 2em;
   color: rgb(74, 67, 78);
