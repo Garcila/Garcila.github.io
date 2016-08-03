@@ -152,7 +152,7 @@ input {
   /*flex: 3;*/
   -webkit-flex: 5 0 5px;
   /*flex: 3 1 1;*/
-  font-size: 4em;
+  /*font-size: 4em;*/
   flex-wrap: wrap;
   color: rgb(96, 96, 91);
   z-index: 5;
