@@ -217,6 +217,7 @@ function getLetter() {
         error_count += 1;
         $('.image div:nth-child(' + error_count + ')').hide();
         if(error_count === 7) {
+          sweetAlert('Sorry you lost',  'The word you were looking for was:' + word);
           // $('.image').append('<div>NO MORE COLORS'+'<br>'+'<br>'+  'Ultraviolet' +'<br>'+'X-Rays' +'<br>'+' Gamma Rays' +'<br>'+'Cosmic Rays' +'<br>'+'is all that is left' +'<br>'+'<br>'+'  The word you were looking for was ' + word + '</div>')
           $('<div/>', {
             class: 'loosing_message',
@@ -238,7 +239,7 @@ function compareWords() {
       won += 1;
       console.log('won: ' + won + ' - lost: ' + lost);
       // $('.image').prepend(  word + '<br>' + 'is correct');
-      $('.word_to_guess').show();
+      sweetAlert('You found the word',  'The word you were looking for was:' + word);
       $('.lines')
         .css('background-color', 'rgb(106, 28, 133)')
         .css('padding', '20px')
@@ -247,6 +248,7 @@ function compareWords() {
       $('.Grid-cell').unbind('click');
       $('.word_to_guess').focus();
       $('.hints').html($('.hints').children())
+      $('.word_to_guess').show();
       setTimeout(function() {
         playAgain();
         // $('.word_to_guess').hide();
@@ -258,6 +260,7 @@ function compareWords() {
     lost +=1;
     // $('.image').append('you loose the word you tried to find is: ' + word);
     console.log('you loose');
+    sweetAlert('Sorry you lost',  'The word you were looking for was:' + word);
     $('.word_to_guess').show();
     $('.lines')
       .css('background-color', 'rgb(106, 28, 133)')
