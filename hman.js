@@ -57,7 +57,7 @@ function randomWord() {
         }
       })
       $('.def').off().bind('click', function wordDefinition() {
-        alert(word_data.results[0].definition);
+        sweetAlert('Definiton',(word_data.results[0].definition));
       })
     },
     error: function(err) {
@@ -89,11 +89,11 @@ function thesaurusDefinition(word) {
         }
       })
       $('.def').off().bind('click', function wordDefinition() {
-        alert(word_data.results[0].definition);
+        sweetAlert('Definition',(word_data.results[0].definition));
       })
     },
     error: function() {
-     alert('I can not find that WORD in my datbase, pelase try a different word')
+     sweetAlert('I can not find that WORD in my datbase, pelase try a different word')
      aiOrHuman();
     },
     beforeSend: function(xhr) {
