@@ -156,6 +156,7 @@ input {
 .Grid-cell {
   display: flex;
   flex: 1;
+  font-size: 1em;
   flex-wrap: wrap;
   border-style: solid;
   border-width: thin;
