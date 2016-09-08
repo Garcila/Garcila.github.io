@@ -1,65 +1,35 @@
 body {
   margin: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   font-family: 'Bungee', cursive;
   background-color: #3d3e3e;
 }
 
 .flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   width: 950px;
 }
 
 
 .col1 {
-  -webkit-box-flex: 6;
-      -ms-flex: 6;
-          flex: 6;
+  flex: 6;
   min-width: 70%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   border: 1px solid #a2a6a5;
 }
 
 .col2 {
   padding-top: 10%;
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  flex: 2;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   background-color: #c1c4c3;
 }
 
@@ -72,14 +42,12 @@ body {
 }
 
 .col2 div:nth-child(n):hover {
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
+  transform: scale(1.05);
   cursor: pointer;
 }
 
 .col2 div:nth-child(n):active {
-  -webkit-transform: scale(0.95);
-          transform: scale(0.95);
+  transform: scale(0.95);
   cursor: pointer;
   border: 1px solid #f6ba2e;
 }
@@ -109,33 +77,19 @@ body {
 }
 
 p {
- -webkit-box-pack: end;
-     -ms-flex-pack: end;
-         justify-content: flex-end;
- -webkit-box-align: end;
-     -ms-flex-align: end;
-             -ms-grid-row-align: flex-end;
-         align-items: flex-end;
+ justify-content: flex-end;
+ align-items: flex-end;
 }
 
 .col3 {
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  flex: 2;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   background-color: #626564;
   padding-top: 20px;
 }
 
 .title div {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   color: white;
   font-size: 60px;
@@ -145,9 +99,7 @@ p {
 }
 
 .title div {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .title div:nth-child(1) {
@@ -186,12 +138,8 @@ p {
 
 .row {
   height: 54px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
+  flex: 1 1 auto;
   background-color: #e0e3e2;
 }
 
@@ -205,17 +153,10 @@ p {
 }
 
 .guess {
-  -webkit-box-flex: 7;
-      -ms-flex: 7 1 auto;
-          flex: 7 1 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  flex: 7 1 auto;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .circle {
@@ -226,24 +167,15 @@ p {
 }
 
 .evaluate {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
+  flex: 1 1 auto;
   min-width: 10%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 input[type=checkbox] {
-  -webkit-transform: scale(1.4);
-          transform: scale(1.4);
+  transform: scale(1.4);
 }
 
 .hide-until-complete {
@@ -258,18 +190,11 @@ input[type=checkbox] {
 }
 
 .result {
-  -webkit-box-flex: 2;
-      -ms-flex: 2 0 auto;
-          flex: 2 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  flex: 2 0 auto;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -ms-flex-line-pack: distribute;
-      align-content: space-around;
-  -ms-flex-flow: wrap;
-      flex-flow: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  flex-flow: wrap;
   padding: 15px;
   max-width: 50px;
 }
@@ -302,15 +227,15 @@ input[type=checkbox] {
 }
 
 .rules {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   z-index: 10;
   position: absolute;
   margin-top: 10px;
   margin-left: 40px;
   width: 800px;
   border: 10px solid black;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
@@ -328,19 +253,15 @@ input[type=checkbox] {
   border: 1px solid #bbbfbe;
   border-radius: 5px;
   background-color: #ffffff;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 .you-win div {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  align-content: center;
+  flex-direction: column;
   margin-top: 20px;
   margin-right: 5px;
   margin-left: 5px;
@@ -349,6 +270,8 @@ input[type=checkbox] {
 
 button {
 	background-color:#ffffff;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
 	border-radius:5px;
 	display:inline-block;
 	cursor:pointer;
