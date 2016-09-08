@@ -62,7 +62,7 @@ body {
   background-color: #c1c4c3;
 }
 
-.col2 a {
+.col2 div {
   border-radius: 50%;
 	width: 60px;
 	height: 60px;
@@ -70,40 +70,40 @@ body {
   margin-bottom: 10px;
 }
 
-.col2 a:nth-child(n):hover {
+.col2 div:nth-child(n):hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
   cursor: pointer;
 }
 
-.col2 a:nth-child(n):active {
+.col2 div:nth-child(n):active {
   -webkit-transform: scale(0.95);
           transform: scale(0.95);
   cursor: pointer;
   border: 1px solid #f6ba2e;
 }
 
-.col2 a:nth-child(1) {
+.col2 div:nth-child(1) {
   background-color: #f9be33;
 }
 
-.col2 a:nth-child(2) {
+.col2 div:nth-child(2) {
   background-color: #f77e82;
 }
 
-.col2 a:nth-child(3) {
+.col2 div:nth-child(3) {
   background-color: #9edf89;
 }
 
-.col2 a:nth-child(4) {
+.col2 div:nth-child(4) {
   background-color: #21d2c5;
 }
 
-.col2 a:nth-child(5) {
+.col2 div:nth-child(5) {
   background-color: #147c87;
 }
 
-.col2 a:nth-child(6) {
+.col2 div:nth-child(6) {
   background-color: #793060;
 }
 

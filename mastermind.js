@@ -28,7 +28,7 @@ $(document).ready(function() {
 
   // Pick color from PALETTE to paint selection
   var pickColor = function() {
-    $('.col2 a').click( function() {
+    $('.col2 div').click( function() {
         var x = $(this).css('backgroundColor');
         hexc(x);
       })
@@ -47,8 +47,7 @@ $(document).ready(function() {
 
   // paint clicked circle with current color in brush
   var paintCircle = function() {
-    $('.circle').on('click', function(e) {
-        e.preventDefault;
+    $('.circle').on('click', function() {
         $(this).css({'background-color':brushColor});
       // include selected color in guess array
       guess.splice(($(this).index()), 1, brushColor)
