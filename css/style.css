@@ -214,7 +214,8 @@ sub {
  */
 
 img {
-    border: 0;
+    border: 1px solid grey;
+    filter: saturate(0.2);
 }
 
 
@@ -774,16 +775,47 @@ p {
     margin-top: 0;
 }
 
+.sub {
+    display: flex;
+    align-items: center;
+    margin-top: 8rem;
+    min-height: 5rem;
+    background-color: #5161a0;
+    padding-left: 1rem;
+}
+
 .subtitle {
-    background-color: #e4e4e4;
-    color: rgb(165, 165, 165);
+    margin-top: 1.5rem;
+    /* background-color: #5e5d5d; */
+    background-color: #5161a0;
+    color: #fff;
+    font-size: 2rem;
+    text-align: left;
+}
+
+.subtitle-first {
+    color: #f2f2f2;
+    font-size: 2rem;
+    text-align: left;
+    margin-top: 1rem;
+}
+
+.subtitle-red {
+    background-color: red;
+    color: #ffffff;
+    min-height: 3rem;
     font-size: 2rem;
     text-align: left;
 }
 
 .subtitle1 {
-    background-color: #e4e4e4;
-    color: #e4e4e4;
+    color: #f2f2f2;
+    font-size: 2rem;
+    text-align: left;
+}
+
+.subtitle2 {
+    color: #5e5d5d;
     font-size: 2rem;
     text-align: left;
 }
@@ -1136,6 +1168,10 @@ figure {
     margin: auto;
 }
 
+figure>a>img {
+    border-radius: 5px;
+}
+
 .content {
     position: relative;
     background: white;
@@ -1151,7 +1187,7 @@ figure {
 }
 
 img {
-    max-width: 100%;
+    max-width: 99%;
 }
 
 .bucket-box {
@@ -1232,7 +1268,8 @@ img {
 }
 
 .projects-pics figure:hover img {
-    transform: scale(1.08);
+    filter: saturate(1);
+    transform: scale(0.95);
 }
 
 .projects-pics figcaption {
