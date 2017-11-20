@@ -3,7 +3,8 @@ $(document).ready(function(){
     $('.text_answer').empty();
     $(function () {
       $.ajax( {
-        url: 'http://cors.io/?u=http://quotes.stormconsultancy.co.uk/random.json',
+				url: 'http://quotes.stormconsultancy.co.uk/random.json'
+        // url: 'http://cors.io/?u=http://quotes.stormconsultancy.co.uk/random.json',
         dataType: 'json',
         method: 'GET'
       }).done(function (json) {
