@@ -3,7 +3,7 @@ $(document).ready(function(){
     $('.text_answer').empty();
     $(function () {
       $.ajax( {
-				url: 'https://quotes.stormconsultancy.co.uk/quotes/1.json',
+				url: 'https://quotes.stormconsultancy.co.uk/quotes.json',
         dataType: 'json',
         method: 'GET'
       }).done(function (json) {
