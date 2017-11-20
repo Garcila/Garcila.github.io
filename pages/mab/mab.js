@@ -3,8 +3,8 @@ $(document).ready(function(){
     $('.text_answer').empty();
     $(function () {
       $.ajax( {
-				url: 'https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=',
-				// url: 'http://quotes.stormconsultancy.co.uk/random.json',
+				url: http://quotes.stormconsultancy.co.uk/quotes/1.json?,
+				url: 'http://quotes.stormconsultancy.co.uk/random.json',
         dataType: 'json',
         method: 'GET'
       }).done(function (json) {
