@@ -3,11 +3,11 @@ $(document).ready(function(){
     $('.text_answer').empty();
     $(function () {
       $.ajax( {
-				url: 'https://quotes.stormconsultancy.co.uk/quotes/1.json?',
+				url: 'https://quotes.stormconsultancy.co.uk/quotes/1.json',
         dataType: 'json',
         method: 'GET'
       }).done(function (json) {
-          $('.text_answer').append(json.quote) //add if you want to have authors: + "<p>&mdash;" + json.author +"</p>")
+          $('.text_answer').append(json.quote || 'Computers are on vacation, come back later 0.0 ') //add if you want to have authors: + "<p>&mdash;" + json.author +"</p>")
           });
      });
    });
