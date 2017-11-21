@@ -820,6 +820,11 @@ p {
     text-align: left;
 }
 
+.robot {
+    border: none;
+    filter: saturate(1);
+}
+
 
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
