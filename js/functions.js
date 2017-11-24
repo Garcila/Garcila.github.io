@@ -1,5 +1,7 @@
 var pContainerHeight = $('.bucket-box').height();
+var pContainerWidth = $('.bucket-box').width();
 
+console.log('w',pContainerWidth);
 $(window).scroll(function() {
 
   var wScroll = $(this).scrollTop();
@@ -10,13 +12,26 @@ $(window).scroll(function() {
       'transform': 'translate(0px, ' + wScroll / 2 + '%)'
     });
 
-    $('.bucket').css({
-      'transform': 'translate(' + wScroll / 90 + '%, ' + wScroll / 40 + '%)'
-    });
+    if(pContainerWidth > 500) {
+      $('.bucket').css({
+        'transform': 'translate(' + wScroll / 90 + '%, ' + wScroll / 40 + '%)'
+      });
 
-    $('.pail').css({
-      'transform': 'translate(-' + wScroll / 50 + '%, 0px)'
-    });
+      $('.pail').css({
+        'transform': 'translate(-' + wScroll / 50 + '%, 0px)'
+      });      
+    }
+    
+    if(pContainerWidth <= 500) {
+      $('.bucket').css({
+        'transform': 'translate(-' + wScroll / 15 + '%, 0px)'
+      });
+
+      $('.pail').css({
+        marginLeft: -100
+      });
+    }
+
 
   }
 
