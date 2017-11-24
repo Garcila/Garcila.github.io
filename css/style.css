@@ -1376,7 +1376,4 @@ footer #flex {
     #flex.row.footer-stuff a {
         font-size: 2rem;
     }
-    img {
-        max-width: 50%;
-    }
 }
